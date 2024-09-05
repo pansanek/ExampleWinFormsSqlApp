@@ -41,6 +41,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.loginLabel = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -58,7 +59,7 @@
             this.buttonReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReg.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.buttonReg.Location = new System.Drawing.Point(176, 416);
+            this.buttonReg.Location = new System.Drawing.Point(173, 403);
             this.buttonReg.Name = "buttonReg";
             this.buttonReg.Size = new System.Drawing.Size(266, 47);
             this.buttonReg.TabIndex = 5;
@@ -69,6 +70,7 @@
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.MainPanel.Controls.Add(this.loginLabel);
             this.MainPanel.Controls.Add(this.surnameField);
             this.MainPanel.Controls.Add(this.pictureBox4);
             this.MainPanel.Controls.Add(this.nameField);
@@ -217,6 +219,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Авторизация";
             // 
+            // loginLabel
+            // 
+            this.loginLabel.AutoSize = true;
+            this.loginLabel.Location = new System.Drawing.Point(244, 453);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(104, 13);
+            this.loginLabel.TabIndex = 7;
+            this.loginLabel.Text = "Уже есть аккаунт?";
+            this.loginLabel.Click += new System.EventHandler(this.loginLabel_Click);
+            // 
             // RegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,5 +265,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.TextBox nameField;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label loginLabel;
     }
 }

@@ -25,7 +25,7 @@ namespace ExampleWinFormsSqlApp
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void closeButton_MouseEnter(object sender, EventArgs e)
@@ -71,8 +71,19 @@ namespace ExampleWinFormsSqlApp
             adapter.SelectCommand = command;
             adapter.Fill(dt);
 
-            if (dt.Rows.Count > 0) MessageBox.Show("Success!");
+            if (dt.Rows.Count > 0) { 
+               this.Hide();
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+            }
             else MessageBox.Show("Login failed!");
+        }
+
+        private void regLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegForm regForm = new RegForm();
+            regForm.Show();
         }
     }
 }

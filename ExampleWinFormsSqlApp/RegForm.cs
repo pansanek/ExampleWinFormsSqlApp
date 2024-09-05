@@ -30,7 +30,7 @@ namespace ExampleWinFormsSqlApp
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void closeButton_MouseEnter(object sender, EventArgs e)
@@ -182,6 +182,13 @@ namespace ExampleWinFormsSqlApp
 
             if (dt.Rows.Count > 0) return true;
             else return false;
+        }
+
+        private void loginLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }
