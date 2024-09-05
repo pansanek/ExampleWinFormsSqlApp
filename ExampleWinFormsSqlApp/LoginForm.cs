@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,28 @@ namespace ExampleWinFormsSqlApp
         private void MainPanel_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            String loginUser = this.loginField.Text;
+            String passUser = this.passField.Text;
+
+            DB db = new DB();
+
+            DataTable dt = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL AND `pass` = @uP", db.getConnection());
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
+            command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(dt);
+
+            if (dt.Rows.Count > 0) MessageBox.Show("Success!");
+            else MessageBox.Show("Login failed!");
         }
     }
 }
